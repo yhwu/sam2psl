@@ -49,10 +49,10 @@ The columns are:
     "qBlocks",     ##22. Comma-separated list of sequence blocks in query. 
     "tBlocks",     ##23. Comma-separated list of sequence blocks in target on aligned strand reading from 5' to 3'. 
 
-    "RI",          ##24. Read index, 1/2.
-    "RNEXT",       ##25. Mate target.
+    "RI",          ##24. Read index, [1/2].
+    "RNEXT",       ##25. Mate target, [=/chr].
     "PNEXT",       ##26. Mate position, 0-based.
-    "TLEN",        ##27. Template length, reported by software. 
+    "TLEN",        ##27. Template length, reported by aligner. 
     "MAPQ",        ##28. Mapping quality.
     "AS",          ##29. Mapping score.
     "MAPS",        ##30. Mapping score, matched length - edit distance.
@@ -61,3 +61,4 @@ The columns are:
     "FSECONDARY",  ##33. Primary or secondary mapping, [P/S].    
     "FQC",         ##34. Quality control pass or fail, [P/F].
     "FDUP",        ##35. Read primary or duplicated, [P/D].
+
