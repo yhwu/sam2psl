@@ -43,6 +43,7 @@ The columns are:
     "blockSizes",  ##19. Comma-separated list of sizes of each block.
     "qStarts",     ##20. Comma-separated list of start position of each block in query.
     "tStarts",     ##21. Comma-separated list of start position of each block in target.
+
     "qBlocks",     ##22. Comma-separated list of sequence blocks in query. 
     "tBlocks",     ##23. Comma-separated list of sequence blocks in target on aligned strand reading from 5' to 3'. 
 
