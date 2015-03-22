@@ -1,5 +1,5 @@
 # sam2psl
-Convert SAM format to PSL format
+Convert SAM format to PSL format.
 
 ### Usage
    make
@@ -21,6 +21,7 @@ Convert SAM format to PSL format
 
 ### Output
 The columns are:
+
     "matches",     ##1.  Number of matching bases that aren't repeats; note, all matches are included. 
     "misMatches",  ##2.  Number of bases that don't match.
     "repMatches",  ##3.  Number of matching bases that are part of repeats; always 0, see column 1.  
