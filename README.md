@@ -5,11 +5,12 @@ Convert SAM format to PSL format.
 ```
    make  
    ./sam2psl -h  ## print header, control-c to exit  
-   cat tmp.sam | ./sam2psl -h  
+   cat tmp.sam | ./sam2psl -h  | grep -v ^#
 ```
 
 ### Notes
    This software is written to be as portable as possible. So, all is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug report is apprecaited.
+   By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
    This software is only tested on bwa and bowtie2 outputs and may not work for other aligners.
    TLEN is calculated differently by bwa and bowtie2. BWA calculates TLEN by mapped start and end positions; bowtie2 includes soft-clipped bases.
    AS, the mapping score, is calculated differently by most aligners.
