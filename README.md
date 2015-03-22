@@ -2,9 +2,9 @@
 Convert SAM format to PSL format.
 
 ### Usage
-   make
-   ./sam2psl -h  ## print header, control-c to exit
-   cat tmp.sam | ./sam2psl -h 
+   make  
+   ./sam2psl -h  ## print header, control-c to exit  
+   cat tmp.sam | ./sam2psl -h  
 
 ### Notes
    This software is written to be as portable as possible. So, all is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug report is apprecaited.
