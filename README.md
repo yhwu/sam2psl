@@ -51,13 +51,13 @@ The columns are:
 
     "RI",          ##24. Read index, 1/2.
     "RNEXT",       ##25. Mate target.
-    "PNEXT",       ##26. Mate position/
+    "PNEXT",       ##26. Mate position, 0-based.
     "TLEN",        ##27. Template length, reported by software. 
     "MAPQ",        ##28. Mapping quality.
     "AS",          ##29. Mapping score.
     "MAPS",        ##30. Mapping score, matched length - edit distance.
-    "FPAIRED",     ##31. Paired end or not, P/S.
-    "FPROPER_PAIR",##32. Pairs properly mapped, [P/U].
-    "FSECONDARY",  ##33. Secondary mapping, [S/P].    
-    "FQC",         ##34. Quality control, [P/F].
-    "FDUP",        ##35. Read duplicated, [D/S].
+    "FPAIRED",     ##31. Paired end or single end, [P/S].
+    "FPROPER_PAIR",##32. Pairs properly mapped or unpaired, [P/U].
+    "FSECONDARY",  ##33. Primary or secondary mapping, [P/S].    
+    "FQC",         ##34. Quality control pass or fail, [P/F].
+    "FDUP",        ##35. Read primary or duplicated, [P/D].

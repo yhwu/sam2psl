@@ -450,7 +450,7 @@ int main(int argc, char* argv[])
     
     pslc.RI=1;
     pslc.RNEXT=sam.RNEXT;
-    pslc.PNEXT=sam.PNEXT;
+    pslc.PNEXT=sam.PNEXT-1; //SAM is 1-based
     pslc.TLEN=sam.TLEN;
     pslc.MAPQ=sam.MAPQ;
     pslc.AS=sam.AS;
