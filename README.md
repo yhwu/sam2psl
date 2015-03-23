@@ -9,20 +9,20 @@ Convert SAM format to PSL format.
 ```
 
 ### Notes
-- This software is written to be portable. All is in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug reports are apprecaited.
+- This software is written to be portable, meant to be used in a pipe. To compile, ```g++ -O2 sam2psl.cpp```. Bug reports are apprecaited.
 - By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
 - This software is only tested on bwa and bowtie2 outputs and may or maybe not work well for other aligners.
-- tStart, reported as -1 if a read is not aligned.
-- matches, length of M/I/D blocks from CIGAR string.
-- misMatches, edit distance as reported in the NM:i:[0-9]+ field. 
-- repMatches, not calculated, reported as 0.
-- blocks, in SAM format, all M/I/D/= blocks are considered matched parts. To closely conform with PSL format, all M blocks are treated as different blocks. For example, a CIGAR with ```10S30M4D30M5S``` produces 2 blocks, with qStarts being ```10,40,```, blockSizes being ```30,30,```.  
-- TLEN, whole template length reported by bowtie2, matched(not including soft-cliped part) template length reported by BWA.
-- AS, mapping score, calculated differently by different aligners.
-- MAPS, matched length - edit distance, this value is calculated so that alignments from different aligners are comparable.
+- tStart, is reported as -1 if a read is not aligned.
+- matches, is the total length of M/I/D blocks from CIGAR string.
+- misMatches, is the edit distance reported in the NM:i:[0-9]+ field. 
+- repMatches, is not calculated, reported as 0.
+- blocks, in SAM format, all M/I/D/= blocks are considered matched parts. To closely conform with PSL format, all M blocks are treated as different blocks. For example, a CIGAR with ```10S30M4D30M5S``` produces 2 blocks, with blockSizes being ```30,30,```, qStarts being ```10,40,```, and tStarts being ```POS-1, POS-1+34,```.  
+- TLEN, is the whole template length reported by bowtie2, matched(not including soft-cliped part) template length reported by BWA.
+- AS, is the mapping score. Different aligners have different formulars.
+- MAPS, is given by matches-misMatches; this value is calculated so that alignments from different aligners are comparable.
 
 ### Status
-- qBlocks and tBlocks are not printed yet, but present in the output as ,'s.
+- qBlocks and tBlocks are not printed yet, but the two fields are present in the output as ,'s.
 - The other fields should be accurate.
 
 ### Output
