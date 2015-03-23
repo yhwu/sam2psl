@@ -18,7 +18,7 @@ Convert SAM format to PSL format.
 - MAPS, the mapping score, is calculated as matched length - edit distance.
 - NM, the edit distance, may not be accurately reported by aligners.
 - MD, which complements CIGAR to reproduce the matched reference, may not be accurately reported by aligners.
-- Blocks, in SAM format, all M/I/D/= blocks are considered matched parts. To conform with PSL format as close as possible, all M blocks are treated as different blocks. For example, a CIGAR with 10S30M4D30M5S produces 2 blocks, with qStarts being 10,40,, blockSizes being 30,30,.  
+- Blocks, in SAM format, all M/I/D/= blocks are considered matched parts. To conform with PSL format as close as possible, all M blocks are treated as different blocks. For example, a CIGAR with ```10S30M4D30M5S``` produces 2 blocks, with qStarts being ```10,40,```, blockSizes being ```30,30,```.  
 
 ### Status
 - qBlocks and tBlocks are not printed yet, but present in the output as ,'s.
