@@ -9,12 +9,12 @@ Convert SAM format to PSL format.
 ```
 
 ### Notes
-- This software is written to be portable. All is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug reports are apprecaited.
+- This software is written to be portable. All is in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug reports are apprecaited.
 - By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
-- This software is only tested on bwa and bowtie2 outputs and may not work for other aligners.
+- This software is only tested on bwa and bowtie2 outputs and may or maybe not work well for other aligners.
 - tStart, reported as -1 if a read is not aligned.
 - matches, length of M/I/D blocks from CIGAR string.
-- misMatches, edit distance as reported in NM:i:[0-9]+ field. 
+- misMatches, edit distance as reported in the NM:i:[0-9]+ field. 
 - repMatches, not calculated, reported as 0.
 - blocks, in SAM format, all M/I/D/= blocks are considered matched parts. To closely conform with PSL format, all M blocks are treated as different blocks. For example, a CIGAR with ```10S30M4D30M5S``` produces 2 blocks, with qStarts being ```10,40,```, blockSizes being ```30,30,```.  
 - TLEN, whole template length reported by bowtie2, matched(not including soft-cliped part) template length reported by BWA.
