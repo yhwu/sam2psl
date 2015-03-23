@@ -10,7 +10,7 @@ Convert SAM format to PSL format.
 
 ### Notes
 - This software is written to be portable, meant to be used in a pipe. To compile, ```g++ -O2 sam2psl.cpp```. Bug reports are apprecaited.
-- By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
+- By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them. Use ```| cut -f-21``` to produce PSL only output.
 - This software is only tested on bwa and bowtie2 outputs and may or maybe not work well for other aligners.
 - tStart, is reported as -1 if a read is not aligned.
 - matches, is the total length of M/I/D blocks from CIGAR string.

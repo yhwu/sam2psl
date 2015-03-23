@@ -220,7 +220,7 @@ void resolve_cigar_pos(int POS, string& CIGAR, POSCIGAR_st& m)
   m.top.resize(m.op.size());
   
   int ns=0;
-  uint32_t end=0; //position on seq 0-based
+  int end=0; //position on seq 0-based
   for (int k = 0; k < (int)m.op.size(); ++k) {
     
     int op=m.op[k];
