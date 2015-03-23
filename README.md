@@ -12,6 +12,7 @@ Convert SAM format to PSL format.
 - This software is written to be portable. All is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug reports are apprecaited.
 - By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
 - This software is only tested on bwa and bowtie2 outputs and may not work for other aligners.
+- tStart is reported as -1 if a read is not aligned.
 - TLEN is calculated differently by bwa and bowtie2. BWA calculates TLEN by mapped start and end positions; bowtie2 includes soft-clipped bases.
 - AS, the mapping score, is calculated differently by different aligners.
 - MAPS, the mapping score, is calculated as matched length - edit distance.
