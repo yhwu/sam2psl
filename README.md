@@ -9,18 +9,18 @@ Convert SAM format to PSL format.
 ```
 
 ### Notes
-- This software is written to be as portable as possible. So, all is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug report is apprecaited.
+- This software is written to be portable. All is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug reports are apprecaited.
 - By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
 - This software is only tested on bwa and bowtie2 outputs and may not work for other aligners.
 - TLEN is calculated differently by bwa and bowtie2. BWA calculates TLEN by mapped start and end positions; bowtie2 includes soft-clipped bases.
-- AS, the mapping score, is calculated differently by most aligners.
-- MAPS, the mapping score, is calculated as the matches length - edit distance.
+- AS, the mapping score, is calculated differently by different aligners.
+- MAPS, the mapping score, is calculated as matched length - edit distance.
 - NM, the edit distance, may not be accurately reported by aligners.
 - MD, which complements CIGAR to reproduce the matched reference, may not be accurately reported by aligners.
 
 ### Status
-   qBlocks and tBlocks are not printed yet, currently only ",".
-   The other fields should be accurate.
+- qBlocks and tBlocks are not printed yet, but present in the output as ,'s.
+- The other fields should be accurate.
 
 ### Output
 The columns are:
@@ -55,10 +55,10 @@ The columns are:
     "PNEXT",       ##26. Mate position, 0-based.
     "TLEN",        ##27. Template length, reported by aligner. 
     "MAPQ",        ##28. Mapping quality.
-    "AS",          ##29. Mapping score.
-    "MAPS",        ##30. Mapping score, matched length - edit distance.
+    "AS",          ##29. Mapping score, reported by the aligner.
+    "MAPS",        ##30. Mapping score, matched length - edit distance, similar to bwa.
     "FPAIRED",     ##31. Paired end or single end, [P/S].
-    "FPROPER_PAIR",##32. Pairs properly mapped or unpaired, [P/U].
+    "FPROPER_PAIR",##32. Pairs properly paired or unpaired, [P/U].
     "FSECONDARY",  ##33. Primary or secondary mapping, [P/S].    
     "FQC",         ##34. Quality control pass or fail, [P/F].
     "FDUP",        ##35. Read primary or duplicated, [P/D].
