@@ -12,13 +12,14 @@ Convert SAM format to PSL format.
 - This software is written to be portable. All is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug reports are apprecaited.
 - By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
 - This software is only tested on bwa and bowtie2 outputs and may not work for other aligners.
-- tStart is reported as -1 if a read is not aligned.
-- TLEN is calculated differently by bwa and bowtie2. BWA calculates TLEN by mapped start and end positions; bowtie2 includes soft-clipped bases.
-- AS, the mapping score, is calculated differently by different aligners.
-- MAPS, the mapping score, is calculated as matched length - edit distance.
-- NM, the edit distance, may not be accurately reported by aligners.
-- MD, which complements CIGAR to reproduce the matched reference, may not be accurately reported by aligners.
-- Blocks, in SAM format, all M/I/D/= blocks are considered matched parts. To conform with PSL format as close as possible, all M blocks are treated as different blocks. For example, a CIGAR with ```10S30M4D30M5S``` produces 2 blocks, with qStarts being ```10,40,```, blockSizes being ```30,30,```.  
+- tStart, reported as -1 if a read is not aligned.
+- matches, length of M/I/D blocks from CIGAR string.
+- misMatches, edit distance as reported in NM:i:[0-9]+ field. 
+- repMatches, not calculated, reported as 0.
+- blocks, in SAM format, all M/I/D/= blocks are considered matched parts. To closely conform with PSL format, all M blocks are treated as different blocks. For example, a CIGAR with ```10S30M4D30M5S``` produces 2 blocks, with qStarts being ```10,40,```, blockSizes being ```30,30,```.  
+- TLEN, whole template length reported by bowtie2, matched(not including soft-cliped part) template length reported by BWA.
+- AS, mapping score, calculated differently by different aligners.
+- MAPS, matched length - edit distance, this value is calculated so that alignments from different aligners are comparable.
 
 ### Status
 - qBlocks and tBlocks are not printed yet, but present in the output as ,'s.
