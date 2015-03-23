@@ -9,14 +9,14 @@ Convert SAM format to PSL format.
 ```
 
 ### Notes
-   This software is written to be as portable as possible. So, all is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug report is apprecaited.
-   By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
-   This software is only tested on bwa and bowtie2 outputs and may not work for other aligners.
-   TLEN is calculated differently by bwa and bowtie2. BWA calculates TLEN by mapped start and end positions; bowtie2 includes soft-clipped bases.
-   AS, the mapping score, is calculated differently by most aligners.
-   MAPS, the mapping score, is calculated as the matches length - edit distance.
-   NM, the edit distance, may not be accurately reported by aligners.
-   MD, which complements CIGAR to reproduce the matched reference, may not be accurately reported by aligners.
+- This software is written to be as portable as possible. So, all is included in a single file. To compile, ```g++ -O2 sam2psl.cpp```. Bug report is apprecaited.
+- By default, the original SAM alignments are printed with '#' at the beginning. Use ```grep -v ^#``` to get rid of them.
+- This software is only tested on bwa and bowtie2 outputs and may not work for other aligners.
+- TLEN is calculated differently by bwa and bowtie2. BWA calculates TLEN by mapped start and end positions; bowtie2 includes soft-clipped bases.
+- AS, the mapping score, is calculated differently by most aligners.
+- MAPS, the mapping score, is calculated as the matches length - edit distance.
+- NM, the edit distance, may not be accurately reported by aligners.
+- MD, which complements CIGAR to reproduce the matched reference, may not be accurately reported by aligners.
 
 ### Status
    qBlocks and tBlocks are not printed yet, currently only ",".
